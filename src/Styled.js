@@ -4,10 +4,10 @@ export const CalculatorStyled = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-width: 100%;
 	height: 100vh;
 
 .СalcApp {
+	width: 270px;
 	background: #f1f1f3;
 	border-radius: 20px;
 	padding: 15px;
@@ -61,7 +61,7 @@ p {
 	color: orange;
 	}
 h2 {
-	font-size: 3rem;
+	font-size: 2rem;
 	margin: 0;
 	text-align: right;
 	}

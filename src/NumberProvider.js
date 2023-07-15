@@ -7,7 +7,6 @@ const NumberProvider = (props) => {
 	const [number, setNumber] = useState('');
 	const [storedNumber, setStoredNumber] = useState('');
  	const [functionType, setFunctionType] = useState('');
-	const [isActiveProcentButton, setIsActiveProcentButton] = useState(false);
 
 	const handleSetScreenValue = (num) => {
 		if ((!number.includes('.') || num !== '.') && number.length < 8) {
@@ -15,7 +14,6 @@ const NumberProvider = (props) => {
 		}
 	  };
 	
-
 	const handleSetStoredValue = () => {
 		setStoredNumber(number);
 		setNumber('');
@@ -28,26 +26,21 @@ const NumberProvider = (props) => {
 	};
 	
 	const handleBackButton = () => {
-		if (number !== '' && isActiveProcentButton === false) {
+		if (number !== '') {
 		  const deletedNumber = number.slice(0, number.length - 1);
 		  setNumber(deletedNumber);
 		}
 	};
 
 	const handleProcentButton = () => {
-		// console.log('n', number);
-		// console.log('st', storedNumber);
-		// console.log('ft', functionType);
 		if (number) {
 			setNumber('0');
 		}
 		if (number && storedNumber && (functionType === VALUE_BUTTONS.ADD || functionType === VALUE_BUTTONS.SUBTRACTION)) {
 			setNumber(`${storedNumber * number / 100}`);
-			setIsActiveProcentButton(true);
 		}
 		if (number && storedNumber && (functionType === VALUE_BUTTONS.MULTIPLY || functionType === VALUE_BUTTONS.DIVIDE)) {
 			setNumber(`${number / 100}`);
-			setIsActiveProcentButton(true);
 		}
 	}
 	
